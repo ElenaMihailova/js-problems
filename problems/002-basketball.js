@@ -15,8 +15,30 @@
  * @param {string[]} points
  * @returns {(number|undefined)}
  */
+// function getWinner(points) {
+//     return undefined;
+// }
+
 function getWinner(points) {
-    return undefined;
+    const array = points;
+    const firstTeamCount = array.map((item) => item.slice(0, 2));
+    const secondTeamCount = array.map((item) => item.slice(3, 5));
+
+    let firstSum = 0;
+    firstTeamCount.forEach((item) => {
+        firstSum += +item;
+    });
+
+    let secondSum = 0;
+    secondTeamCount.forEach((item) => {
+        secondSum += +item;
+    });
+    console.log(firstSum, secondSum);
+
+    if (firstSum == secondSum) {
+        return undefined;
+    }
+    return firstSum > secondSum ? 1 : 2;
 }
 
 module.exports = getWinner;
