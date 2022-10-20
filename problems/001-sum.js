@@ -12,8 +12,16 @@
  * @param {number} n целое число
  * @returns {number}
  */
-function sum(n) {
-    return undefined;
+
+function sum(param) {
+    if (param > 0) {
+        let sum = 0;
+        for (i = 1; i <= param; i++) {
+            sum += i;
+        }
+        return sum;
+    }
+    return 1;
 }
 
 module.exports = sum;
