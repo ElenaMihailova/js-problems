@@ -19,26 +19,40 @@
 //     return undefined;
 // }
 
+// function getWinner(points) {
+//     const array = points;
+//     const firstTeamCount = array.map((item) => item.slice(0, 2));
+//     const secondTeamCount = array.map((item) => item.slice(3, 5));
+
+//     let firstSum = 0;
+//     firstTeamCount.forEach((item) => {
+//         firstSum += +item;
+//     });
+
+//     let secondSum = 0;
+//     secondTeamCount.forEach((item) => {
+//         secondSum += +item;
+//     });
+//     console.log(firstSum, secondSum);
+
+//     if (firstSum == secondSum) {
+//         return undefined;
+//     }
+//     return firstSum > secondSum ? 1 : 2;
+// }
+
 function getWinner(points) {
-    const array = points;
-    const firstTeamCount = array.map((item) => item.slice(0, 2));
-    const secondTeamCount = array.map((item) => item.slice(3, 5));
+    let sumA = 0;
+    let sumB = 0;
 
-    let firstSum = 0;
-    firstTeamCount.forEach((item) => {
-        firstSum += +item;
+    points.forEach((result) => {
+        const [resultA, resultB] = result.split("-");
+        sumA += Number.parseInt(resultA);
+        sumB += Number.parseInt(resultB);
     });
 
-    let secondSum = 0;
-    secondTeamCount.forEach((item) => {
-        secondSum += +item;
-    });
-    console.log(firstSum, secondSum);
-
-    if (firstSum == secondSum) {
-        return undefined;
-    }
-    return firstSum > secondSum ? 1 : 2;
+    if (sumA === sumB) return undefined;
+    return sumA > sumB ? 1 : 2;
 }
 
 module.exports = getWinner;
